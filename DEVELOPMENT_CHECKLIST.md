@@ -5,12 +5,13 @@ Quick reference checklist for daily development progress on the Unistyles Adapte
 ## 🚀 Phase 1: Core Implementation (CURRENT)
 
 ### Week 1: Unistyles Integration
-- [ ] Install `react-native-unistyles@^3.0.0` as dev dependency
-- [ ] Install `react-native-nitro-modules` and `react-native-edge-to-edge`
-- [ ] Configure Babel plugin in main project
-- [ ] Configure Babel plugin in example app
-- [ ] Remove all `any` types from hooks
-- [ ] Import proper UnistylesRuntime types
+- [x] Install `react-native-unistyles@^3.0.0` as dev dependency
+- [x] Install `react-native-nitro-modules` and `react-native-edge-to-edge`
+- [x] Upgrade to React 19 and React Native 0.78 (required for Unistyles 3.0)
+- [x] Configure Babel plugin in main project
+- [x] Configure Babel plugin in example app
+- [x] Remove all `any` types from hooks
+- [x] Import proper UnistylesRuntime types
 - [ ] Test basic Unistyles setup works
 
 ### Week 2: Adapter Implementation  

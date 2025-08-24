@@ -42,8 +42,8 @@ export function withPortableContentTheme<P extends WithThemeProps>(
   Component: React.ComponentType<P>
 ): React.ComponentType<Omit<P, keyof WithThemeProps>> {
   const WrappedComponent = (props: Omit<P, keyof WithThemeProps>) => {
-    const theme = (UnistylesRuntime as any).theme as PortableContentTheme;
-    const themeName = (UnistylesRuntime as any).themeName as string;
+    const theme = UnistylesRuntime.getTheme() as PortableContentTheme;
+    const themeName = UnistylesRuntime.themeName || 'light';
 
     const enhancedProps = {
       ...props,
@@ -91,7 +91,7 @@ export function withThemeOnly<P extends { theme: PortableContentTheme }>(
   Component: React.ComponentType<P>
 ): React.ComponentType<Omit<P, 'theme'>> {
   const WrappedComponent = (props: Omit<P, 'theme'>) => {
-    const theme = (UnistylesRuntime as any).theme as PortableContentTheme;
+    const theme = UnistylesRuntime.getTheme() as PortableContentTheme;
 
     const enhancedProps = {
       ...props,
@@ -146,7 +146,7 @@ export function withThemeUtils<
   Component: React.ComponentType<P>
 ): React.ComponentType<Omit<P, 'getThemeValue'>> {
   const WrappedComponent = (props: Omit<P, 'getThemeValue'>) => {
-    const theme = (UnistylesRuntime as any).theme as PortableContentTheme;
+    const theme = UnistylesRuntime.getTheme() as PortableContentTheme;
 
     const getThemeValue = function <T>(path: string, fallback?: T): T {
       const keys = path.split('.');

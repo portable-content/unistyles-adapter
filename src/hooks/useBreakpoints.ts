@@ -40,10 +40,9 @@ import type {
  */
 export function usePortableContentBreakpoints(): UseBreakpointsReturn {
   // Get current breakpoint and screen info from Unistyles runtime
-  const currentBreakpoint = (UnistylesRuntime as any)
-    .breakpoint as keyof PortableContentBreakpoints;
-  const screenWidth = (UnistylesRuntime as any).screen.width;
-  const screenHeight = (UnistylesRuntime as any).screen.height;
+  const currentBreakpoint = UnistylesRuntime.breakpoint as keyof PortableContentBreakpoints;
+  const screenWidth = UnistylesRuntime.screen.width;
+  const screenHeight = UnistylesRuntime.screen.height;
 
   // Breakpoint checker function
   const isBreakpoint = useCallback(
@@ -85,8 +84,7 @@ export function usePortableContentBreakpoints(): UseBreakpointsReturn {
 export function useIsBreakpoint(
   targetBreakpoint: keyof PortableContentBreakpoints
 ): boolean {
-  const currentBreakpoint = (UnistylesRuntime as any)
-    .breakpoint as keyof PortableContentBreakpoints;
+  const currentBreakpoint = UnistylesRuntime.breakpoint as keyof PortableContentBreakpoints;
   return currentBreakpoint === targetBreakpoint;
 }
 
@@ -114,9 +112,8 @@ export function useIsBreakpoint(
 export function useIsBreakpointUp(
   minBreakpoint: keyof PortableContentBreakpoints
 ): boolean {
-  const screenWidth = (UnistylesRuntime as any).screen.width;
-  const breakpoints = (UnistylesRuntime as any)
-    .breakpoints as PortableContentBreakpoints;
+  const screenWidth = UnistylesRuntime.screen.width;
+  const breakpoints = UnistylesRuntime.breakpoints as PortableContentBreakpoints;
 
   const minWidth = breakpoints[minBreakpoint];
   return screenWidth >= minWidth;
@@ -145,9 +142,8 @@ export function useIsBreakpointUp(
 export function useIsBreakpointDown(
   maxBreakpoint: keyof PortableContentBreakpoints
 ): boolean {
-  const screenWidth = (UnistylesRuntime as any).screen.width;
-  const breakpoints = (UnistylesRuntime as any)
-    .breakpoints as PortableContentBreakpoints;
+  const screenWidth = UnistylesRuntime.screen.width;
+  const breakpoints = UnistylesRuntime.breakpoints as PortableContentBreakpoints;
 
   const maxWidth = breakpoints[maxBreakpoint];
   return screenWidth < maxWidth;
@@ -183,9 +179,8 @@ export function useIsBreakpointDown(
 export function useResponsiveValue<T>(
   values: Partial<Record<keyof PortableContentBreakpoints, T>>
 ): T | undefined {
-  const breakpoints = (UnistylesRuntime as any)
-    .breakpoints as PortableContentBreakpoints;
-  const screenWidth = (UnistylesRuntime as any).screen.width;
+  const breakpoints = UnistylesRuntime.breakpoints as PortableContentBreakpoints;
+  const screenWidth = UnistylesRuntime.screen.width;
 
   // Get all breakpoints that have values, sorted by width
   const availableBreakpoints = Object.keys(values)

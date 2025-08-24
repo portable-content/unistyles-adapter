@@ -4,6 +4,7 @@
 
 import { useCallback } from 'react';
 import { UnistylesRuntime } from 'react-native-unistyles';
+import type { UnistylesThemes } from 'react-native-unistyles';
 import type {
   PortableContentBreakpoints,
   PortableContentTheme,
@@ -42,15 +43,14 @@ import type {
  */
 export function usePortableContentTheme(): UseThemeReturn {
   // Get current theme from Unistyles runtime
-  const currentTheme = (UnistylesRuntime as any).theme as PortableContentTheme;
-  const currentThemeName = (UnistylesRuntime as any).themeName as string;
-  const currentBreakpoint = (UnistylesRuntime as any)
-    .breakpoint as keyof PortableContentBreakpoints;
-  // const screenWidth = (UnistylesRuntime as any).screen.width;
+  const currentTheme = UnistylesRuntime.getTheme() as PortableContentTheme;
+  const currentThemeName = UnistylesRuntime.themeName || 'light';
+  const currentBreakpoint = UnistylesRuntime.breakpoint as keyof PortableContentBreakpoints;
+  // const screenWidth = UnistylesRuntime.screen.width;
 
   // Theme setter function
   const setTheme = useCallback((themeName: string) => {
-    (UnistylesRuntime as any).setTheme(themeName);
+    UnistylesRuntime.setTheme(themeName as keyof UnistylesThemes);
   }, []);
 
   // Breakpoint checker function
@@ -104,5 +104,5 @@ export function usePortableContentTheme(): UseThemeReturn {
  * ```
  */
 export function usePortableContentThemeStatic(): PortableContentTheme {
-  return (UnistylesRuntime as any).theme as PortableContentTheme;
+  return UnistylesRuntime.getTheme() as PortableContentTheme;
 }

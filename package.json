@@ -96,7 +96,7 @@
     "react-native": "0.76.0",
     "react-native-builder-bob": "^0.29.0",
     "react-native-edge-to-edge": "^1.6.2",
-    "react-native-nitro-modules": "^0.28.1",
+    "react-native-nitro-modules": "^0.12.0",
     "react-native-unistyles": "^3.0.10",
     "react-native-web": "^0.21.1",
     "release-it": "^17.0.0",
@@ -106,8 +106,8 @@
   },
   "peerDependencies": {
     "@portable-content/typescript-sdk": ">=0.2.0",
-    "react": "*",
-    "react-native": ">=0.76.0",
+    "react": ">=19.0.0",
+    "react-native": ">=0.78.0",
     "react-native-edge-to-edge": ">=1.0.0",
     "react-native-nitro-modules": ">=0.12.0",
     "react-native-unistyles": ">=3.0.0"
