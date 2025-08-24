@@ -3,8 +3,11 @@
  */
 
 import { useCallback } from 'react';
-import { useUnistyles, UnistylesRuntime } from 'react-native-unistyles';
-import type { UnistylesThemes } from 'react-native-unistyles';
+import {
+  UnistylesRuntime,
+  type UnistylesThemes,
+  useUnistyles,
+} from 'react-native-unistyles';
 import type {
   PortableContentBreakpoints,
   PortableContentTheme,

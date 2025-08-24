@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 // Mock theme data for demonstration
 const mockTheme = {
@@ -37,43 +37,53 @@ const ThemeDemo: React.FC = () => {
   const breakpoint = 'md';
 
   return (
-    <View style={{
-      padding: theme.spacing.lg,
-      backgroundColor: theme.colors.background,
-      borderRadius: 8,
-      margin: theme.spacing.md,
-      minHeight: 200,
-    }}>
-      <Text style={{
-        fontSize: theme.typography.fontSize.xl,
-        color: theme.colors.text,
-        marginBottom: theme.spacing.md,
-        fontWeight: 'bold',
-      }}>
+    <View
+      style={{
+        padding: theme.spacing.lg,
+        backgroundColor: theme.colors.background,
+        borderRadius: 8,
+        margin: theme.spacing.md,
+        minHeight: 200,
+      }}
+    >
+      <Text
+        style={{
+          fontSize: theme.typography.fontSize.xl,
+          color: theme.colors.text,
+          marginBottom: theme.spacing.md,
+          fontWeight: 'bold',
+        }}
+      >
         Portable Content Theme Demo
       </Text>
-      
-      <Text style={{
-        fontSize: theme.typography.fontSize.md,
-        color: theme.colors.textSecondary,
-        marginBottom: theme.spacing.sm,
-      }}>
+
+      <Text
+        style={{
+          fontSize: theme.typography.fontSize.md,
+          color: theme.colors.textSecondary,
+          marginBottom: theme.spacing.sm,
+        }}
+      >
         Current Theme: {themeName}
       </Text>
-      
-      <Text style={{
-        fontSize: theme.typography.fontSize.md,
-        color: theme.colors.textSecondary,
-        marginBottom: theme.spacing.lg,
-      }}>
+
+      <Text
+        style={{
+          fontSize: theme.typography.fontSize.md,
+          color: theme.colors.textSecondary,
+          marginBottom: theme.spacing.lg,
+        }}
+      >
         Current Breakpoint: {breakpoint}
       </Text>
 
-      <View style={{
-        flexDirection: 'row',
-        gap: theme.spacing.sm,
-        marginBottom: theme.spacing.lg,
-      }}>
+      <View
+        style={{
+          flexDirection: 'row',
+          gap: theme.spacing.sm,
+          marginBottom: theme.spacing.lg,
+        }}
+      >
         <TouchableOpacity
           style={{
             backgroundColor: theme.colors.primary,
@@ -82,11 +92,13 @@ const ThemeDemo: React.FC = () => {
           }}
           onPress={() => setTheme('light')}
         >
-          <Text style={{
-            color: 'white',
-            fontSize: theme.typography.fontSize.md,
-            fontWeight: '600',
-          }}>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: theme.typography.fontSize.md,
+              fontWeight: '600',
+            }}
+          >
             Light Theme
           </Text>
         </TouchableOpacity>
@@ -99,32 +111,48 @@ const ThemeDemo: React.FC = () => {
           }}
           onPress={() => setTheme('dark')}
         >
-          <Text style={{
-            color: 'white',
-            fontSize: theme.typography.fontSize.md,
-            fontWeight: '600',
-          }}>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: theme.typography.fontSize.md,
+              fontWeight: '600',
+            }}
+          >
             Dark Theme
           </Text>
         </TouchableOpacity>
       </View>
 
-      <View style={{
-        backgroundColor: theme.colors.surface,
-        padding: theme.spacing.md,
-        borderRadius: 8,
-      }}>
-        <Text style={{
-          fontSize: theme.typography.fontSize.sm,
-          color: theme.colors.textSecondary,
-          marginBottom: theme.spacing.xs,
-        }}>
+      <View
+        style={{
+          backgroundColor: theme.colors.surface,
+          padding: theme.spacing.md,
+          borderRadius: 8,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: theme.typography.fontSize.sm,
+            color: theme.colors.textSecondary,
+            marginBottom: theme.spacing.xs,
+          }}
+        >
           Theme Colors:
         </Text>
-        <Text style={{ color: theme.colors.primary, fontSize: theme.typography.fontSize.sm }}>
+        <Text
+          style={{
+            color: theme.colors.primary,
+            fontSize: theme.typography.fontSize.sm,
+          }}
+        >
           Primary: {theme.colors.primary}
         </Text>
-        <Text style={{ color: theme.colors.secondary, fontSize: theme.typography.fontSize.sm }}>
+        <Text
+          style={{
+            color: theme.colors.secondary,
+            fontSize: theme.typography.fontSize.sm,
+          }}
+        >
           Secondary: {theme.colors.secondary}
         </Text>
       </View>
@@ -143,67 +171,95 @@ const BreakpointsDemo: React.FC = () => {
   const theme = mockTheme;
 
   return (
-    <View style={{
-      padding: theme.spacing.lg,
-      backgroundColor: theme.colors.background,
-      borderRadius: 8,
-      margin: theme.spacing.md,
-    }}>
-      <Text style={{
-        fontSize: theme.typography.fontSize.xl,
-        color: theme.colors.text,
-        marginBottom: theme.spacing.md,
-        fontWeight: 'bold',
-      }}>
+    <View
+      style={{
+        padding: theme.spacing.lg,
+        backgroundColor: theme.colors.background,
+        borderRadius: 8,
+        margin: theme.spacing.md,
+      }}
+    >
+      <Text
+        style={{
+          fontSize: theme.typography.fontSize.xl,
+          color: theme.colors.text,
+          marginBottom: theme.spacing.md,
+          fontWeight: 'bold',
+        }}
+      >
         Responsive Breakpoints Demo
       </Text>
-      
-      <Text style={{
-        fontSize: theme.typography.fontSize.md,
-        color: theme.colors.textSecondary,
-        marginBottom: theme.spacing.sm,
-      }}>
+
+      <Text
+        style={{
+          fontSize: theme.typography.fontSize.md,
+          color: theme.colors.textSecondary,
+          marginBottom: theme.spacing.sm,
+        }}
+      >
         Screen: {width} × {height}
       </Text>
-      
-      <Text style={{
-        fontSize: theme.typography.fontSize.md,
-        color: theme.colors.textSecondary,
-        marginBottom: theme.spacing.lg,
-      }}>
+
+      <Text
+        style={{
+          fontSize: theme.typography.fontSize.md,
+          color: theme.colors.textSecondary,
+          marginBottom: theme.spacing.lg,
+        }}
+      >
         Current Breakpoint: {breakpoint}
       </Text>
 
-      <View style={{
-        backgroundColor: theme.colors.surface,
-        padding: theme.spacing.md,
-        borderRadius: 8,
-      }}>
-        <Text style={{
-          fontSize: theme.typography.fontSize.sm,
-          color: theme.colors.textSecondary,
-          marginBottom: theme.spacing.sm,
-        }}>
+      <View
+        style={{
+          backgroundColor: theme.colors.surface,
+          padding: theme.spacing.md,
+          borderRadius: 8,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: theme.typography.fontSize.sm,
+            color: theme.colors.textSecondary,
+            marginBottom: theme.spacing.sm,
+          }}
+        >
           Breakpoint Checks:
         </Text>
-        
+
         {['xs', 'sm', 'md', 'lg', 'xl'].map((bp) => (
-          <View key={bp} style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginBottom: theme.spacing.xs,
-          }}>
-            <Text style={{ color: theme.colors.text, fontSize: theme.typography.fontSize.sm }}>
+          <View
+            key={bp}
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginBottom: theme.spacing.xs,
+            }}
+          >
+            <Text
+              style={{
+                color: theme.colors.text,
+                fontSize: theme.typography.fontSize.sm,
+              }}
+            >
               {bp}:
             </Text>
-            <Text style={{
-              color: isBreakpoint(bp as any) ? theme.colors.primary : theme.colors.textSecondary,
-              fontSize: theme.typography.fontSize.sm,
-              fontWeight: isBreakpoint(bp as any) ? 'bold' : 'normal',
-            }}>
-              {isBreakpoint(bp as any) ? '✓ Current' : 
-               isAbove(bp as any) ? '↑ Above' : 
-               isBelow(bp as any) ? '↓ Below' : '—'}
+            <Text
+              style={{
+                color: isBreakpoint(bp as any)
+                  ? theme.colors.primary
+                  : theme.colors.textSecondary,
+                fontSize: theme.typography.fontSize.sm,
+                fontWeight: isBreakpoint(bp as any) ? 'bold' : 'normal',
+              }}
+            >
+              {isBreakpoint(bp as any)
+                ? '✓ Current'
+                : isAbove(bp as any)
+                  ? '↑ Above'
+                  : isBelow(bp as any)
+                    ? '↓ Below'
+                    : '—'}
             </Text>
           </View>
         ))}
@@ -219,7 +275,8 @@ const meta: Meta<typeof ThemeDemo> = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Demonstrates the Portable Content Unistyles Adapter with theme and breakpoint functionality.',
+        component:
+          'Demonstrates the Portable Content Unistyles Adapter with theme and breakpoint functionality.',
       },
     },
   },
@@ -233,7 +290,8 @@ export const ThemeShowcase: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Shows theme colors, spacing, typography, and theme switching functionality.',
+        story:
+          'Shows theme colors, spacing, typography, and theme switching functionality.',
       },
     },
   },
@@ -244,7 +302,8 @@ export const BreakpointsShowcase: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates responsive breakpoint detection and screen size information.',
+        story:
+          'Demonstrates responsive breakpoint detection and screen size information.',
       },
     },
   },
@@ -260,7 +319,8 @@ export const CombinedDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Combined demonstration of both theme and breakpoint functionality.',
+        story:
+          'Combined demonstration of both theme and breakpoint functionality.',
       },
     },
   },

@@ -3,7 +3,7 @@
  */
 
 import { useCallback } from 'react';
-import { useUnistyles, UnistylesRuntime } from 'react-native-unistyles';
+import { UnistylesRuntime, useUnistyles } from 'react-native-unistyles';
 import type {
   PortableContentBreakpoints,
   UseBreakpointsReturn,
@@ -87,7 +87,8 @@ export function usePortableContentBreakpoints(): UseBreakpointsReturn {
 export function useIsBreakpoint(
   targetBreakpoint: keyof PortableContentBreakpoints
 ): boolean {
-  const currentBreakpoint = UnistylesRuntime.breakpoint as keyof PortableContentBreakpoints;
+  const currentBreakpoint =
+    UnistylesRuntime.breakpoint as keyof PortableContentBreakpoints;
   return currentBreakpoint === targetBreakpoint;
 }
 
@@ -116,7 +117,8 @@ export function useIsBreakpointUp(
   minBreakpoint: keyof PortableContentBreakpoints
 ): boolean {
   const screenWidth = UnistylesRuntime.screen.width;
-  const breakpoints = UnistylesRuntime.breakpoints as PortableContentBreakpoints;
+  const breakpoints =
+    UnistylesRuntime.breakpoints as PortableContentBreakpoints;
 
   const minWidth = breakpoints[minBreakpoint];
   return screenWidth >= minWidth;
@@ -146,7 +148,8 @@ export function useIsBreakpointDown(
   maxBreakpoint: keyof PortableContentBreakpoints
 ): boolean {
   const screenWidth = UnistylesRuntime.screen.width;
-  const breakpoints = UnistylesRuntime.breakpoints as PortableContentBreakpoints;
+  const breakpoints =
+    UnistylesRuntime.breakpoints as PortableContentBreakpoints;
 
   const maxWidth = breakpoints[maxBreakpoint];
   return screenWidth < maxWidth;
@@ -182,7 +185,8 @@ export function useIsBreakpointDown(
 export function useResponsiveValue<T>(
   values: Partial<Record<keyof PortableContentBreakpoints, T>>
 ): T | undefined {
-  const breakpoints = UnistylesRuntime.breakpoints as PortableContentBreakpoints;
+  const breakpoints =
+    UnistylesRuntime.breakpoints as PortableContentBreakpoints;
   const screenWidth = UnistylesRuntime.screen.width;
 
   // Get all breakpoints that have values, sorted by width

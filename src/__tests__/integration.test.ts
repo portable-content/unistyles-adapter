@@ -125,12 +125,12 @@ describe('Portable Content Adapter Integration', () => {
       });
 
       const processedTheme = adapter.themes.light;
-      
+
       // Verify theme structure is preserved
       expect(processedTheme.colors.primary).toBe('#007AFF');
       expect(processedTheme.spacing.md).toBe(16);
       expect(processedTheme.typography.fontSize.md).toBe(16);
-      
+
       // Verify utility functions are added
       expect(processedTheme.utils).toBeDefined();
       expect(typeof processedTheme.utils.spacing).toBe('function');
@@ -153,7 +153,7 @@ describe('Portable Content Adapter Integration', () => {
 
       const sortedKeys = Object.keys(adapter.breakpoints);
       const sortedValues = Object.values(adapter.breakpoints);
-      
+
       // Should be sorted by value
       expect(sortedValues).toEqual([0, 576, 768, 992, 1200]);
       expect(sortedKeys).toEqual(['xs', 'sm', 'md', 'lg', 'xl']);
@@ -181,7 +181,7 @@ describe('Portable Content Adapter Integration', () => {
         md: 16,
         lg: 20,
       });
-      
+
       expect(responsiveValue).toBeDefined();
       expect(responsiveValue.xs).toBe(12);
       expect(responsiveValue.md).toBe(16);

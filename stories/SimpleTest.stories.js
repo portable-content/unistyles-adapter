@@ -1,19 +1,23 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 const SimpleTest = ({ text = 'Hello Storybook!' }) => {
   return (
-    <View style={{
-      padding: 20,
-      backgroundColor: '#f0f0f0',
-      borderRadius: 8,
-      margin: 10,
-    }}>
-      <Text style={{
-        fontSize: 18,
-        color: '#333',
-        textAlign: 'center',
-      }}>
+    <View
+      style={{
+        padding: 20,
+        backgroundColor: '#f0f0f0',
+        borderRadius: 8,
+        margin: 10,
+      }}
+    >
+      <Text
+        style={{
+          fontSize: 18,
+          color: '#333',
+          textAlign: 'center',
+        }}
+      >
         {text}
       </Text>
     </View>

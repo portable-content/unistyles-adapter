@@ -3,9 +3,11 @@
  * @jest-environment jsdom
  */
 
-import React from 'react';
 import { renderHook } from '@testing-library/react';
-import { usePortableContentTheme, usePortableContentThemeStatic } from '../hooks/useTheme';
+import {
+  usePortableContentTheme,
+  usePortableContentThemeStatic,
+} from '../hooks/useTheme';
 import { usePortableContentBreakpoints } from '../hooks/useBreakpoints';
 
 // Mock Unistyles
