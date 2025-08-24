@@ -1,0 +1,16 @@
+node_modules/
+lib/
+coverage/
+*.log
+.DS_Store
+.vscode/
+.idea/
+android/
+ios/
+example/node_modules/
+example/ios/
+example/android/
+*.podspec
+*.gradle
+*.xcodeproj/
+*.xcworkspace/
