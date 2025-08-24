@@ -1,5 +1,7 @@
 # Unistyles Adapter for Portable Content
 
+[![codecov](https://codecov.io/gh/portable-content/unistyles-adapter/graph/badge.svg?token=t7RYxirBGv)](https://codecov.io/gh/portable-content/unistyles-adapter)
+
 A React Native adapter library that integrates [Unistyles 3.0](https://www.unistyl.es/) with the [@portable-content/sdk](https://github.com/portable-content/sdk) for seamless cross-platform styling.
 
 ## Overview
