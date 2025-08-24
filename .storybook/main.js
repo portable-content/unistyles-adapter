@@ -16,21 +16,24 @@ const config = {
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
   },
-  babel: async (options) => ({
-    ...options,
-    presets: [
-      ...options.presets,
-      ['@babel/preset-env', { targets: { node: 'current' } }],
-      '@babel/preset-typescript',
-      ['@babel/preset-react', { runtime: 'automatic' }],
-    ],
-  }),
   webpackFinal: async (config) => {
     // Add React Native Web support
     config.resolve.alias = {
       ...config.resolve.alias,
       'react-native$': require.resolve('./react-native-mock.js'),
     };
+
+    // Add Babel loader for JSX processing
+    config.module.rules.push({
+      test: /\.(js|jsx|ts|tsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          configFile: require.resolve('./babel.config.js'),
+        },
+      },
+    });
 
     return config;
   },
