@@ -12,16 +12,16 @@ Quick reference checklist for daily development progress on the Unistyles Adapte
 - [x] Configure Babel plugin in example app
 - [x] Remove all `any` types from hooks
 - [x] Import proper UnistylesRuntime types
-- [ ] Test basic Unistyles setup works
+- [x] Test basic Unistyles setup works
 
-### Week 2: Adapter Implementation  
-- [ ] Fix `createPortableContentAdapter` theme processing
-- [ ] Implement proper `usePortableContentTheme` hook
-- [ ] Implement proper `usePortableContentBreakpoints` hook
-- [ ] Fix `withPortableContentTheme` HOC
-- [ ] Test theme switching functionality
-- [ ] Test responsive breakpoint behavior
-- [ ] Add integration tests for runtime
+### Week 2: Adapter Implementation
+- [x] Fix `createPortableContentAdapter` theme processing
+- [x] Implement proper `usePortableContentTheme` hook
+- [x] Implement proper `usePortableContentBreakpoints` hook
+- [x] Fix `withPortableContentTheme` HOC
+- [/] Test theme switching functionality
+- [/] Test responsive breakpoint behavior
+- [x] Add integration tests for runtime
 
 ### Week 2-3: Example App
 - [ ] Get example app running with real Unistyles

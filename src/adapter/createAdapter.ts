@@ -50,7 +50,7 @@ import {
 export function createPortableContentAdapter(
   config: PortableContentAdapterConfig
 ): AdapterInstance {
-  const { themes, breakpoints } = config;
+  const { themes, breakpoints, settings } = config;
 
   // Validate input
   if (!themes || Object.keys(themes).length === 0) {
@@ -116,6 +116,7 @@ export function createPortableContentAdapter(
   return {
     themes: processedThemes,
     breakpoints: processedBreakpoints,
+    settings,
     utils,
   };
 }

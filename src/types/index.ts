@@ -118,6 +118,12 @@ export interface PortableContentAdapterConfig {
 export interface AdapterInstance {
   themes: Record<string, PortableContentTheme>;
   breakpoints: PortableContentBreakpoints;
+  settings?: {
+    adaptiveThemes?: boolean;
+    initialTheme?: string | (() => string);
+    cssVars?: boolean;
+    nativeBreakpointsMode?: 'points' | 'pixels';
+  };
   utils: {
     getThemeValue: <T>(path: string, fallback?: T) => T;
     createResponsiveValue: <T>(

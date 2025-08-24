@@ -3,7 +3,7 @@
  */
 
 import { useCallback } from 'react';
-import { UnistylesRuntime } from 'react-native-unistyles';
+import { useUnistyles, UnistylesRuntime } from 'react-native-unistyles';
 import type { UnistylesThemes } from 'react-native-unistyles';
 import type {
   PortableContentBreakpoints,
@@ -42,11 +42,13 @@ import type {
  * ```
  */
 export function usePortableContentTheme(): UseThemeReturn {
-  // Get current theme from Unistyles runtime
-  const currentTheme = UnistylesRuntime.getTheme() as PortableContentTheme;
-  const currentThemeName = UnistylesRuntime.themeName || 'light';
-  const currentBreakpoint = UnistylesRuntime.breakpoint as keyof PortableContentBreakpoints;
-  // const screenWidth = UnistylesRuntime.screen.width;
+  // Use Unistyles' built-in hook for proper reactivity
+  const { theme: unistylesTheme, rt } = useUnistyles();
+
+  // Cast to our Portable Content theme type
+  const currentTheme = unistylesTheme as PortableContentTheme;
+  const currentThemeName = rt.themeName || 'light';
+  const currentBreakpoint = rt.breakpoint as keyof PortableContentBreakpoints;
 
   // Theme setter function
   const setTheme = useCallback((themeName: string) => {
@@ -104,5 +106,7 @@ export function usePortableContentTheme(): UseThemeReturn {
  * ```
  */
 export function usePortableContentThemeStatic(): PortableContentTheme {
+  // For static access, we can still use the runtime directly
+  // This won't cause re-renders but will get the current theme
   return UnistylesRuntime.getTheme() as PortableContentTheme;
 }

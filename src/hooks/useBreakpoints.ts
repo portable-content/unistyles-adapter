@@ -3,7 +3,7 @@
  */
 
 import { useCallback } from 'react';
-import { UnistylesRuntime } from 'react-native-unistyles';
+import { useUnistyles, UnistylesRuntime } from 'react-native-unistyles';
 import type {
   PortableContentBreakpoints,
   UseBreakpointsReturn,
@@ -39,10 +39,13 @@ import type {
  * ```
  */
 export function usePortableContentBreakpoints(): UseBreakpointsReturn {
-  // Get current breakpoint and screen info from Unistyles runtime
-  const currentBreakpoint = UnistylesRuntime.breakpoint as keyof PortableContentBreakpoints;
-  const screenWidth = UnistylesRuntime.screen.width;
-  const screenHeight = UnistylesRuntime.screen.height;
+  // Use Unistyles' built-in hook for proper reactivity
+  const { rt } = useUnistyles();
+
+  // Get current breakpoint and screen info from runtime
+  const currentBreakpoint = rt.breakpoint as keyof PortableContentBreakpoints;
+  const screenWidth = rt.screen.width;
+  const screenHeight = rt.screen.height;
 
   // Breakpoint checker function
   const isBreakpoint = useCallback(
