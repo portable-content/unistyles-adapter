@@ -19,8 +19,8 @@ Quick reference checklist for daily development progress on the Unistyles Adapte
 - [x] Implement proper `usePortableContentTheme` hook
 - [x] Implement proper `usePortableContentBreakpoints` hook
 - [x] Fix `withPortableContentTheme` HOC
-- [/] Test theme switching functionality
-- [/] Test responsive breakpoint behavior
+- [x] Test theme switching functionality
+- [x] Test responsive breakpoint behavior
 - [x] Add integration tests for runtime
 
 ### Week 2-3: Example App
