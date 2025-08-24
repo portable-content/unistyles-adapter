@@ -205,11 +205,13 @@ export default App
 ## 📚 Documentation
 
 ### 🚀 Getting Started
+
 - **[Integration Guide](./INTEGRATION_GUIDE.md)** - Complete setup and integration instructions for react-native-renderer
 - **[Quick Reference](./QUICK_REFERENCE.md)** - API cheat sheet and common patterns
 - **[Migration Guide](./MIGRATION_GUIDE.md)** - Migrate from other styling solutions
 
 ### 📖 Additional Resources
+
 - [Storybook Demo](http://localhost:6006/) - Interactive component showcase (when running `npm run storybook`)
 - [Example App](./example/) - Full React Native example implementation
 - [API Reference](#api-reference) - Detailed API documentation below

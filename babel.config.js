@@ -4,7 +4,5 @@ module.exports = {
     '@babel/preset-typescript',
     ['@babel/preset-react', { runtime: 'automatic' }],
   ],
-  plugins: [
-    ['react-native-unistyles/plugin'],
-  ],
+  plugins: [['react-native-unistyles/plugin']],
 };

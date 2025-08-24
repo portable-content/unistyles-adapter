@@ -26,7 +26,14 @@ export const Text = ({ style, children, ...props }) => (
   </span>
 );
 
-export const TouchableOpacity = ({ style, children, onPress, disabled, activeOpacity = 0.8, ...props }) => (
+export const TouchableOpacity = ({
+  style,
+  children,
+  onPress,
+  disabled,
+  activeOpacity = 0.8,
+  ...props
+}) => (
   <button
     style={{
       border: 'none',

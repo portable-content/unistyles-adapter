@@ -5,6 +5,7 @@ This guide helps you migrate from other styling solutions to the **@portable-con
 ## 📋 Migration Paths
 
 ### From React Native StyleSheet
+
 ```typescript
 // Before: React Native StyleSheet
 import { StyleSheet } from 'react-native';
@@ -21,7 +22,7 @@ import { usePortableContentTheme } from '@portable-content/unistyles-adapter';
 
 const MyComponent = () => {
   const { theme } = usePortableContentTheme();
-  
+
   return (
     <View style={{
       padding: theme.spacing.md,
@@ -34,6 +35,7 @@ const MyComponent = () => {
 ```
 
 ### From Styled Components
+
 ```typescript
 // Before: Styled Components
 import styled from 'styled-components/native';
@@ -48,7 +50,7 @@ import { usePortableContentTheme } from '@portable-content/unistyles-adapter';
 
 const MyComponent = () => {
   const { theme } = usePortableContentTheme();
-  
+
   return (
     <View style={{
       padding: theme.spacing.md,
@@ -61,6 +63,7 @@ const MyComponent = () => {
 ```
 
 ### From Tamagui
+
 ```typescript
 // Before: Tamagui
 import { YStack, Text } from '@tamagui/core';
@@ -74,7 +77,7 @@ import { usePortableContentTheme } from '@portable-content/unistyles-adapter';
 
 const MyComponent = () => {
   const { theme } = usePortableContentTheme();
-  
+
   return (
     <View style={{
       padding: theme.spacing.lg,
@@ -87,6 +90,7 @@ const MyComponent = () => {
 ```
 
 ### From NativeBase
+
 ```typescript
 // Before: NativeBase
 import { Box, Text } from 'native-base';
@@ -100,7 +104,7 @@ import { usePortableContentTheme } from '@portable-content/unistyles-adapter';
 
 const MyComponent = () => {
   const { theme } = usePortableContentTheme();
-  
+
   return (
     <View style={{
       backgroundColor: theme.colors.background,
@@ -115,6 +119,7 @@ const MyComponent = () => {
 ## 🎨 Theme Migration
 
 ### Define Your Design System
+
 ```typescript
 // 1. Extract your existing theme values
 const designTokens = {
@@ -129,7 +134,7 @@ const designTokens = {
   },
   spacing: {
     xs: 4,
-    sm: 8, 
+    sm: 8,
     md: 16,
     lg: 24,
     xl: 32,
@@ -161,28 +166,29 @@ const darkTheme = {
 ```
 
 ### Responsive Breakpoints
+
 ```typescript
 // Map your existing breakpoints
 const breakpoints = {
-  xs: 0,     // Mobile portrait
-  sm: 576,   // Mobile landscape  
-  md: 768,   // Tablet portrait
-  lg: 992,   // Tablet landscape
-  xl: 1200,  // Desktop
+  xs: 0, // Mobile portrait
+  sm: 576, // Mobile landscape
+  md: 768, // Tablet portrait
+  lg: 992, // Tablet landscape
+  xl: 1200, // Desktop
 };
 ```
 
 ## 🔧 Component Migration Strategy
 
 ### Step 1: Create Theme Provider
+
 ```typescript
 // App.tsx
 import { UnistylesRegistry } from 'react-native-unistyles';
 import { createPortableContentAdapter } from '@portable-content/unistyles-adapter';
 
 // Register themes with Unistyles
-UnistylesRegistry
-  .addBreakpoints(breakpoints)
+UnistylesRegistry.addBreakpoints(breakpoints)
   .addThemes({ light: lightTheme, dark: darkTheme })
   .addConfig({ adaptiveThemes: true });
 
@@ -194,11 +200,12 @@ const adapter = createPortableContentAdapter({
 ```
 
 ### Step 2: Migrate Components Gradually
+
 ```typescript
 // Start with leaf components, work up the tree
 const Button = ({ title, onPress }) => {
   const { theme } = usePortableContentTheme();
-  
+
   return (
     <TouchableOpacity
       style={{
@@ -221,11 +228,12 @@ const Button = ({ title, onPress }) => {
 ```
 
 ### Step 3: Add Responsive Behavior
+
 ```typescript
 const ResponsiveComponent = () => {
   const { theme } = usePortableContentTheme();
   const { isBreakpoint, isAbove } = usePortableContentBreakpoints();
-  
+
   return (
     <View style={{
       padding: isBreakpoint('xs') ? theme.spacing.sm : theme.spacing.lg,
@@ -240,12 +248,14 @@ const ResponsiveComponent = () => {
 ## 🚀 Migration Checklist
 
 ### Pre-Migration
+
 - [ ] Audit existing theme/styling approach
 - [ ] Document current design tokens
 - [ ] Identify responsive breakpoints
 - [ ] Plan component migration order
 
 ### Setup Phase
+
 - [ ] Install dependencies (React 19+, RN 0.78+, Unistyles 3.0+)
 - [ ] Configure Babel plugin
 - [ ] Create theme definitions
@@ -253,6 +263,7 @@ const ResponsiveComponent = () => {
 - [ ] Create adapter instance
 
 ### Migration Phase
+
 - [ ] Start with design system components (Button, Text, etc.)
 - [ ] Migrate leaf components first
 - [ ] Add responsive behavior where needed
@@ -260,6 +271,7 @@ const ResponsiveComponent = () => {
 - [ ] Update component tests
 
 ### Validation Phase
+
 - [ ] Test on multiple screen sizes
 - [ ] Verify theme switching works
 - [ ] Check performance (should be better!)
@@ -269,12 +281,14 @@ const ResponsiveComponent = () => {
 ## ⚡ Performance Benefits
 
 ### Before (Traditional Approaches)
+
 - ❌ Theme changes trigger full re-renders
 - ❌ Responsive updates cause layout thrashing
 - ❌ Large bundle sizes with CSS-in-JS
 - ❌ Runtime style calculations
 
 ### After (Unistyles 3.0 + Adapter)
+
 - ✅ Zero re-renders on theme changes
 - ✅ Native-level responsive updates
 - ✅ Compile-time optimizations
@@ -303,15 +317,19 @@ jest.mock('@portable-content/unistyles-adapter', () => ({
 ## 🚨 Common Migration Issues
 
 ### Issue: Bundle Size Increase
+
 **Solution**: Unistyles optimizes at compile-time, net bundle size usually decreases
 
 ### Issue: TypeScript Errors
+
 **Solution**: Ensure React 19+ types and proper peer dependencies
 
 ### Issue: Theme Not Updating
+
 **Solution**: Verify Unistyles registry setup and adapter creation
 
 ### Issue: Responsive Not Working
+
 **Solution**: Check breakpoint definitions and hook usage
 
 ## 📚 Migration Resources

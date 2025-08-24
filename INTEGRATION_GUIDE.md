@@ -5,6 +5,7 @@ This guide shows how to integrate the **@portable-content/unistyles-adapter** wi
 ## 📋 Prerequisites
 
 ### Required Dependencies
+
 ```json
 {
   "react": ">=19.0.0",
@@ -16,6 +17,7 @@ This guide shows how to integrate the **@portable-content/unistyles-adapter** wi
 ```
 
 ### Installation
+
 ```bash
 npm install @portable-content/unistyles-adapter
 # or
@@ -25,17 +27,19 @@ yarn add @portable-content/unistyles-adapter
 ## 🔧 Setup
 
 ### 1. Configure Babel Plugin
+
 Add to your `babel.config.js`:
+
 ```javascript
 module.exports = {
-  plugins: [
-    ['react-native-unistyles/plugin'],
-  ],
+  plugins: [['react-native-unistyles/plugin']],
 };
 ```
 
 ### 2. Create Unistyles Configuration
+
 Create `unistyles.ts` in your project:
+
 ```typescript
 import { UnistylesRegistry } from 'react-native-unistyles';
 
@@ -89,8 +93,7 @@ const breakpoints = {
 };
 
 // Register with Unistyles
-UnistylesRegistry
-  .addBreakpoints(breakpoints)
+UnistylesRegistry.addBreakpoints(breakpoints)
   .addThemes({
     light: lightTheme,
     dark: darkTheme,
@@ -102,6 +105,7 @@ UnistylesRegistry
 ```
 
 ### 3. Initialize Adapter
+
 ```typescript
 import { createPortableContentAdapter } from '@portable-content/unistyles-adapter';
 
@@ -121,6 +125,7 @@ const adapter = createPortableContentAdapter({
 ## 🎯 React Native Renderer Integration
 
 ### Core Integration Pattern
+
 ```typescript
 import {
   createPortableContentAdapter,
@@ -147,7 +152,7 @@ export class ReactNativeRenderer {
     return () => {
       const { theme, setTheme, breakpoint } = usePortableContentTheme();
       const breakpoints = usePortableContentBreakpoints();
-      
+
       return React.createElement(component, {
         theme,
         setTheme,
@@ -160,13 +165,14 @@ export class ReactNativeRenderer {
 ```
 
 ### Component Integration
+
 ```typescript
 // In your rendered components
 import { usePortableContentTheme } from '@portable-content/unistyles-adapter';
 
 export const PortableComponent: React.FC = () => {
   const { theme, breakpoint, isBreakpoint } = usePortableContentTheme();
-  
+
   return (
     <View style={{
       padding: theme.spacing.md,
@@ -185,6 +191,7 @@ export const PortableComponent: React.FC = () => {
 ## 🎨 Advanced Usage
 
 ### Responsive Utilities
+
 ```typescript
 import { createResponsiveValue } from '@portable-content/unistyles-adapter';
 
@@ -198,19 +205,24 @@ const responsivePadding = createResponsiveValue({
 ```
 
 ### Theme Utilities
+
 ```typescript
-import { getThemeValue, mergeThemes } from '@portable-content/unistyles-adapter';
+import {
+  getThemeValue,
+  mergeThemes,
+} from '@portable-content/unistyles-adapter';
 
 // Get nested theme values
 const primaryColor = getThemeValue('colors.primary', '#007AFF');
 
 // Merge theme overrides
 const customTheme = mergeThemes(baseTheme, {
-  colors: { primary: '#FF0000' }
+  colors: { primary: '#FF0000' },
 });
 ```
 
 ### HOC Pattern
+
 ```typescript
 import { withPortableContentTheme } from '@portable-content/unistyles-adapter';
 
@@ -222,7 +234,7 @@ const EnhancedComponent = withPortableContentTheme(MyComponent);
 ```typescript
 const ThemeSwitcher: React.FC = () => {
   const { themeName, setTheme } = usePortableContentTheme();
-  
+
   return (
     <TouchableOpacity onPress={() => setTheme(themeName === 'light' ? 'dark' : 'light')}>
       <Text>Switch to {themeName === 'light' ? 'dark' : 'light'} theme</Text>
@@ -236,7 +248,7 @@ const ThemeSwitcher: React.FC = () => {
 ```typescript
 const ResponsiveComponent: React.FC = () => {
   const { isBreakpoint, isAbove, isBelow, width } = usePortableContentBreakpoints();
-  
+
   return (
     <View>
       {isBreakpoint('sm') && <Text>Small screen</Text>}
@@ -251,6 +263,7 @@ const ResponsiveComponent: React.FC = () => {
 ## ⚡ Performance Optimization
 
 The adapter uses Unistyles 3.0's zero re-render architecture:
+
 - Theme changes don't trigger React re-renders
 - Breakpoint changes are handled at the native level
 - Optimal performance for complex UIs
@@ -289,12 +302,14 @@ jest.mock('@portable-content/unistyles-adapter', () => ({
 ## 📚 API Reference
 
 ### Core Functions
+
 - `createPortableContentAdapter(config)` - Create adapter instance
 - `usePortableContentTheme()` - Theme hook with reactivity
 - `usePortableContentBreakpoints()` - Breakpoint detection hook
 - `withPortableContentTheme(Component)` - HOC for theme injection
 
 ### Utilities
+
 - `createResponsiveValue(values)` - Create responsive value object
 - `getThemeValue(path, fallback)` - Get nested theme value
 - `mergeThemes(base, overrides)` - Merge theme objects
