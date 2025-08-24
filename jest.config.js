@@ -1,5 +1,4 @@
 module.exports = {
-
   setupFiles: ['<rootDir>/jest.setup.js'],
   modulePathIgnorePatterns: [
     '<rootDir>/example/node_modules',
@@ -20,7 +19,10 @@ module.exports = {
   testEnvironment: 'node',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   transform: {
-    '^.+\\.(ts|tsx)$': ['babel-jest', { presets: ['@babel/preset-env', '@babel/preset-typescript'] }],
+    '^.+\\.(ts|tsx)$': [
+      'babel-jest',
+      { presets: ['@babel/preset-env', '@babel/preset-typescript'] },
+    ],
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
